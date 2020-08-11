@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import StickyParallaxHeader from 'react-native-sticky-parallax-header'
 
 import AllEvents from './Components/AllEvents';
 import Calendar from './Components/Calendar';
@@ -19,8 +18,10 @@ class App extends React.Component {
   }
   render(){
     const Tab = createBottomTabNavigator();
+
     return (
       <NavigationContainer>
+
         <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
   
           <Tab.Screen name="All Events" component={AllEvents} />

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Button } from 'react-native';
 
 const MyTabBar = function({ state, descriptors, navigation }) {
   return (
     <View style={{ 
         flexDirection: 'row', 
-        height: 50, 
+        height: 75, 
         backgroundColor: 'powderblue' 
         }}>
       {state.routes.map((route, index) => {
@@ -56,5 +56,17 @@ const MyTabBar = function({ state, descriptors, navigation }) {
     </View>
   );
 }
+
+// function MyTabBar({ navigation }) {
+//   return (
+//     <Button
+//       title="Go somewhere"
+//       onPress={() => {
+//         // Navigate using the `navigation` prop that you received
+//         navigation.navigate('SomeScreen');
+//       }}
+//     />
+//   );
+// }
 
 export default MyTabBar;
