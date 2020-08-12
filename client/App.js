@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Icon } from 'react-native-elements';
 
 import AllEvents from './Components/AllEvents';
-import Calendar from './Components/Calendar';
+// import Calendar from './Components/Calendar';
 import Map from './Components/Map';
 import NearMe from './Components/NearMe';
 import MyTabBar from './Components/MyTabBar';
@@ -29,19 +29,19 @@ let HomeScreen = function({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-      <Icon name="md-beer" type="ionicon" color="#887700" />
-
-      {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details', {
-          itemId: 86,
-          otherParam: 'anything you want here',
-        })}
-      /> */}
-
     </View>
   );
 }
+
+let CalendarScreen = function({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Calendar goes here</Text>
+    </View>
+  );
+
+}
+
 
 
 let DetailsScreen = function({ route, navigation }) {
@@ -56,9 +56,6 @@ let DetailsScreen = function({ route, navigation }) {
       <Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
       {/* <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
       <Button title="Go back" onPress={() => navigation.goBack()} /> */}
-
-
-
     </View>
   );
 }
@@ -80,10 +77,12 @@ function App() {
             if (route.name === 'Home') {
               iconName = focused ? 'ios-map' : 'md-map';
             } else if (route.name === 'Details') {
-              iconName = focused ? 'ios-list' : 'ios-list';
+              iconName = focused ? 'ios-list' : 'ios-list-box';
+            } else if (route.name === 'Calendar') {
+              iconName = focused ? 'ios-calendar' : 'md-calendar';
             }
 
-            return <Icon name={iconName} type="ionicon" color="red" />
+            return <Icon name={iconName} type="ionicon" color="#00aef3" />
           },
         })}
         tabBarOptions={{
@@ -93,6 +92,8 @@ function App() {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Details" component={DetailsScreen} />
+        <Tab.Screen name="Calendar" component={CalendarScreen} />
+
       </Tab.Navigator>
 
 
