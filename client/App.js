@@ -9,6 +9,18 @@ import Map from './Components/Map';
 import NearMe from './Components/NearMe';
 import MyTabBar from './Components/MyTabBar';
 
+let StackScreen = function() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ title: 'My home' }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 class App extends React.Component {
   constructor() {
     super()
