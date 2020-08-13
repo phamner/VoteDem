@@ -3,10 +3,10 @@
 
 // const MyTabBar = function({ state, descriptors, navigation }) {
 //   return (
-//     <View style={{ 
-//         flexDirection: 'row', 
-//         height: 75, 
-//         backgroundColor: 'powderblue' 
+//     <View style={{
+//         flexDirection: 'row',
+//         height: 75,
+//         backgroundColor: 'powderblue'
 //         }}>
 //       {state.routes.map((route, index) => {
 //         const { options } = descriptors[route.key];
