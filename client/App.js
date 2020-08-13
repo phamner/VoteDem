@@ -114,14 +114,10 @@ function MyApp() {
         activeTintColor: "#00aef3",
         inactiveTintColor: "gray",
       }}
-    >
-               
-      <Tab.Screen name="Home" component={HomeScreen} />
-               
-      <Tab.Screen name="Details" component={DetailsScreen} />
-               
-      <Tab.Screen name="Calendar" component={CalendarScreen} />
-             
+    >      
+      <Tab.Screen name="Home" component={HomeScreen} />     
+      <Tab.Screen name="Details" component={DetailsScreen} />      
+      <Tab.Screen name="Calendar" component={CalendarScreen} />  
     </Tab.Navigator>
   );
 }
