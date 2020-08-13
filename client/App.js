@@ -93,6 +93,24 @@ let DetailsScreen = function ({ navigation }) {
 
 // export default App;
 
+
+
+
+
+//IGNORE THE ABOVE
+
+
+
+
+
+
+
+
+
+
+
+
+
 function MyApp() {
   return (
     <Tab.Navigator
@@ -115,13 +133,9 @@ function MyApp() {
         inactiveTintColor: "gray",
       }}
     >
-               
       <Tab.Screen name="Home" component={HomeScreen} />
-               
       <Tab.Screen name="Details" component={DetailsScreen} />
-               
       <Tab.Screen name="Calendar" component={CalendarScreen} />
-             
     </Tab.Navigator>
   );
 }
@@ -129,32 +143,9 @@ function MyApp() {
 export default function App() {
   return (
     <NavigationContainer>
-            
       <Stack.Navigator>
-        <Stack.Screen name="MyApp" component={MyApp} />
+        <Stack.Screen name="VOTE BLUE" component={MyApp} />
       </Stack.Navigator>
-          
     </NavigationContainer>
   );
 }
-
-// function Home() {
-//     return (
-//       <Tab.Navigator>
-//         <Tab.Screen name="Feed" component={Feed} />
-//         <Tab.Screen name="Messages" component={Messages} />
-//       </Tab.Navigator>
-//     );
-//   }
-
-//   function App() {
-//     return (
-//       <NavigationContainer>
-//         <Stack.Navigator>
-//           <Stack.Screen name="Home" component={Home} />
-//           <Stack.Screen name="Profile" component={Profile} />
-//           <Stack.Screen name="Settings" component={Settings} />
-//         </Stack.Navigator>
-//       </NavigationContainer>
-//     );
-//   }
