@@ -8,20 +8,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Icon } from 'react-native-elements';
 
 
-const HomeStack = createStackNavigator();
+const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
-// function HomeScreen({ route, navigation }) {
-//   return (
-//     <HomeStack.Navigator>
-//       <HomeStack.Screen
-//         name="A"
-//         component={A}
-//         options={{ tabBarLabel: 'Home!' }}
-//       />
-//     </HomeStack.Navigator>
-//   );
-// }
 
 
 
@@ -41,80 +29,146 @@ let CalendarScreen = function({ navigation }) {
   );
 }
 
-let DetailsScreen = function({ route, navigation }) {
-  /* 2. Get the param */
-  // const { itemId } = route.params;
-  // const { otherParam } = route.params;
-  
+let DetailsScreen = function({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Details Screen</Text>
-      {/* <Text>itemId: {JSON.stringify(itemId)}</Text>
-      <Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
     </View>
   );
 }
 
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      testing: []
-    }
-  }
-  render() {
-    return (
-      <NavigationContainer>
+// class App extends React.Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       testing: []
+//     }
+//   }
+//   render() {
+//     return (
+//       <NavigationContainer>
         
 
-          <Tab.Navigator 
-            initialRouteName="Home"
+//           <Tab.Navigator 
+//             initialRouteName="Home"
+//             screenOptions={({ route }) => ({
+//               tabBarIcon: ({ focused, color, size }) => {
+//                 let iconName;
+
+//                 if (route.name === 'Home') {
+//                   iconName = focused ? 'ios-map' : 'md-map';
+//                 } else if (route.name === 'Details') {
+//                   iconName = focused ? 'ios-list-box' : 'ios-list';
+//                 } else if (route.name === 'Calendar') {
+//                   iconName = focused ? 'md-calendar' : 'ios-calendar';
+//                 }
+
+//                 return <Icon name={iconName} type="ionicon" color="#00aef3" />
+//               },
+//             })}
+
+//             tabBarOptions={{
+//               activeTintColor: '#00aef3',
+//               inactiveTintColor: 'gray',
+//             }}
+//           >
+//             <Tab.Screen name="Home" component={HomeScreen} />
+//             <Tab.Screen name="Details" component={DetailsScreen} />
+//             <Tab.Screen name="Calendar" component={CalendarScreen} />
+
+//           </Tab.Navigator>
+
+
+
+
+//           {/* <Stack.Screen 
+//             name="Home" 
+//             component={HomeScreen}  
+//             options={{title: 'My Home'}}
+//           />
+//           <Stack.Screen 
+//             name="Details" 
+//             component={DetailsScreen} 
+//             options={{ title: 'All the Deets' }}
+//           /> */}
+
+//         {/* </Stack.Navigator> */}
+//       </NavigationContainer>
+//     );
+//   }
+// }
+
+// export default App;
+
+
+
+
+
+
+
+function MyApp() {
+    return (
+         <Tab.Navigator
             screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
+              tabBarIcon: ({ focused }) => {
+                let iconName;
+                if (route.name === 'Home') {
+                  iconName = focused ? 'ios-map' : 'md-map';
+                } else if (route.name === 'Details') {
+                  iconName = focused ? 'ios-list-box' : 'ios-list';
+                } else if (route.name === 'Calendar') {
+                  iconName = focused ? 'md-calendar' : 'ios-calendar';
+                }
 
-                if (route.name === 'Home') {
-                  iconName = focused ? 'ios-map' : 'md-map';
-                } else if (route.name === 'Details') {
-                  iconName = focused ? 'ios-list-box' : 'ios-list';
-                } else if (route.name === 'Calendar') {
-                  iconName = focused ? 'md-calendar' : 'ios-calendar';
-                }
+                return <Icon name={iconName} type="ionicon" color="#00aef3" />
+              },
+            })}
 
-                return <Icon name={iconName} type="ionicon" color="#00aef3" />
-              },
-            })}
-
-            tabBarOptions={{
-              activeTintColor: '#00aef3',
-              inactiveTintColor: 'gray',
-            }}
+            tabBarOptions={{
+              activeTintColor: '#00aef3',
+              inactiveTintColor: 'gray',
+            }}
           >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Details" component={DetailsScreen} />
-            <Tab.Screen name="Calendar" component={CalendarScreen} />
+           <Tab.Screen name="Home" component={HomeScreen} />
+           <Tab.Screen name="Details" component={DetailsScreen} />
+           <Tab.Screen name="Calendar" component={CalendarScreen} />
 
-          </Tab.Navigator>
-
-
-
-
-          {/* <Stack.Screen 
-            name="Home" 
-            component={HomeScreen}  
-            options={{title: 'My Home'}}
-          />
-          <Stack.Screen 
-            name="Details" 
-            component={DetailsScreen} 
-            options={{ title: 'All the Deets' }}
-          /> */}
-
-        {/* </Stack.Navigator> */}
-      </NavigationContainer>
-    );
-  }
+         </Tab.Navigator>
+    )
 }
 
-export default App;
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+
+        <Stack.Screen name="MyApp" component={MyApp} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+
+// function Home() {
+//     return (
+//       <Tab.Navigator>
+//         <Tab.Screen name="Feed" component={Feed} />
+//         <Tab.Screen name="Messages" component={Messages} />
+//       </Tab.Navigator>
+//     );
+//   }
+  
+//   function App() {
+//     return (
+//       <NavigationContainer>
+//         <Stack.Navigator>
+//           <Stack.Screen name="Home" component={Home} />
+//           <Stack.Screen name="Profile" component={Profile} />
+//           <Stack.Screen name="Settings" component={Settings} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     );
+//   }
