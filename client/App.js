@@ -25,11 +25,11 @@ let HomeScreen = function ({ navigation }) {
     <MapView        
     style={{flex: 1}}        
     region={{          
-      latitude: 39.8283,          
-      longitude: -98.5795,          
-      latitudeDelta: 0.0922,          
-      longitudeDelta: 0.0421        
-    }}        
+      latitude: 39.8283,
+      longitude: -98.5795,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421
+    }}
     showsUserLocation={true}      
     />);
 };
