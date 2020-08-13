@@ -6,35 +6,44 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Icon } from "react-native-elements";
-import MapView from 'react-native-maps';
+import MapView from "react-native-maps";
+import { Marker } from "react-native-maps";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// let HomeScreen = function ({ navigation }) {
-//   return (
-//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//       <Text>Home Screen</Text>
-      
-//     </View>
-//   );
-// };
-
 let HomeScreen = function ({ navigation }) {
-  return (      
-    <MapView        
-    style={{flex: 1}}        
-    region={{          
-      latitude: 39.8283,
-      longitude: -98.5795,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421
-    }}
-    showsUserLocation={true}      
-    />);
+  return (
+    <MapView
+      style={{ flex: 1 }}
+      region={{
+        latitude: 39.8283,
+        longitude: -98.5795,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      }}
+      showsUserLocation={true}
+    >
+      {/* {this.state.markers.map(marker => (
+    <Marker
+      coordinate={marker.latlng}
+      title={marker.title}
+      description={marker.description}
+    />
+  ))} */}
+    </MapView>
+  );
 };
 
-
+// <MapView>
+  // {this.state.markers.map(marker => (
+  //   <Marker
+  //     coordinate={marker.latlng}
+  //     title={marker.title}
+  //     description={marker.description}
+  //   />
+  // ))}
+// </MapView>
 
 let CalendarScreen = function ({ navigation }) {
   return (
@@ -109,4 +118,3 @@ let App = function () {
 };
 
 export default App;
-
