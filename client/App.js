@@ -8,6 +8,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Icon } from "react-native-elements";
 import MapView from "react-native-maps";
 import { Marker } from "react-native-maps";
+import axios from 'axios';
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -62,12 +64,32 @@ let DetailsScreen = function ({ navigation }) {
 };
 
 class MyApp extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      data: [],
+      events: [],
     };
   }
+
+  componentDidMount() {
+    console.log('app has been mounted');
+
+    axios.get('/events')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+
+  }
+
+
   render() {
     return (
       <Tab.Navigator

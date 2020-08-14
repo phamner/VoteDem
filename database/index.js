@@ -36,11 +36,7 @@ const eventDataSchema = new mongoose.Schema({
 
 const eventData = mongoose.model('eventData', eventDataSchema);
 
-
-
-
-
-
+//Populates db
 function getEventData(){  
 
     let url = 'https://api.mobilize.us/v1/events?organization_id=1393&per_page=200';
